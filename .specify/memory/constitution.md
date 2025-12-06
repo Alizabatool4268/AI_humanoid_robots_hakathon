@@ -1,55 +1,74 @@
-# [PROJECT_NAME] Constitution
+<!-- Sync Impact Report:
+Version change: 0.0.0 -> 1.0.0
+Modified principles: All principles added as this is the initial constitution.
+Added sections: Technical Requirements, Constraints.
+Removed sections: None.
+Templates requiring updates:
+- .specify/templates/plan-template.md: ✅ updated (no changes needed)
+- .specify/templates/spec-template.md: ✅ updated (no changes needed)
+- .specify/templates/tasks-template.md: ✅ updated (no changes needed)
+Follow-up TODOs: None.
+-->
+# AI-Native Textbook on Physical AI & Humanoid Robotics Constitution
 <!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Precision in Technical Robotics and AI Concepts
+Precision in technical robotics and AI concepts
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Accessibility for Students
+Accessibility for students with varying software/hardware backgrounds
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Clean, Minimal, Fast, and Modern UI
+UI must be clean minimal and fast and modern
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Simple, Easy to Understand, Accurate, and Simple Content
+Content must be simple, easy to understand, accurate and simple
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Markdown Chapter Storage
+All chapters stored as Markdown and programmatically retrievable
 
-### [PRINCIPLE_6_NAME]
+### VI. Roman Urdu Translation
+Roman Urdu translation available for every chapter via toggle
 
+### VII. User Highlights Persistence
+User highlights persist via browser localStorage
 
-[PRINCIPLE__DESCRIPTION]
+### VIII. RAG Chatbot Scope
+RAG chatbot answers questions based on entire book or user-selected text
 
-## [SECTION_2_NAME]
+### IX. LLM Reasoning Restriction
+LLM reasoning restricted only to book content + selected text
+
+### X. Minimal Compute and Efficient Content
+Minimal compute usage, Keep chapter size small and clean, Light weight embeddings and use free tiers
+
+## Technical Requirements
 <!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Frontend: Docusaurus, chapter personalization button
+- Backend: FastAPI + Qdrant Cloud + Neon Postgres
+- Auth: Better-Auth for signup/signin and background-based content personalization
+- Claude Code Subagents + Skills for modular, reusable automation
 
-## [SECTION_3_NAME]
+## Constraints
 <!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Textbook must remain concise, technically accurate, and agent-friendly
+- All features must function with static Markdown files
+- Book deployable on GitHub Pages
+- Minimal compute usage
+- Keep chapter size small and clean
+- Light weight embeddings and use free tiers
 
 ## Governance
 <!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes all other project practices.
+- Amendments require documentation, approval, and a migration plan.
+- All PRs/reviews must verify compliance.
+- Complexity must be justified.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
+**Version**: 1.0.0 | **Ratified**: 2025-12-05 | **Last Amended**: 2025-12-05
 <!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
