@@ -12,14 +12,13 @@ This guide will help you quickly set up and browse the AI-Native Textbook on Phy
 1.  **Clone the repository**:
 
     ```bash
-    git clone [REPOSITORY_URL]
-    cd [REPOSITORY_NAME]
+    git clone https://github.com/AI-humanoid-robots-hakathon/AI-humanoid-robots-hakathon.git
+    cd AI-humanoid-robots-hakathon
     ```
-    (Replace `[REPOSITORY_URL]` and `[REPOSITORY_NAME]` with actual values once known.)
 
 2.  **Install dependencies**:
 
-    Navigate to the `frontend/` directory (or wherever Docusaurus is initialized) and install the required Node.js packages:
+    Navigate to the `frontend/` directory (where Docusaurus is initialized) and install the required Node.js packages:
 
     ```bash
     cd frontend/
@@ -35,6 +34,16 @@ This guide will help you quickly set up and browse the AI-Native Textbook on Phy
     ```
 
     This will open the textbook in your browser at `http://localhost:3000` (or a similar address).
+
+## Docusaurus Commands
+
+- `npm start`: Start the development server
+- `npm run build`: Build the static website for deployment
+- `npm run serve`: Serve the built website locally
+- `npm run deploy`: Deploy the website to GitHub Pages
+- `npm run clear`: Clear the build cache
+- `npm run write-translations`: Extract translation strings
+- `npm run write-heading-ids`: Generate heading IDs for linking
 
 ## Browsing the Textbook
 

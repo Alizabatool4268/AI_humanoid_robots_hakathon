@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "@docusaurus/eslint-config",
+    "prettier"
+  ],
+  "plugins": [
+    "markdown",
+    "@docusaurus"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.md", "**/*.mdx"],
+      "processor": "markdown/markdown"
+    },
+    {
+      "files": ["**/*.mdx"],
+      "extends": [
+        "plugin:@docusaurus/recommended"
+      ]
+    }
+  ]
+}

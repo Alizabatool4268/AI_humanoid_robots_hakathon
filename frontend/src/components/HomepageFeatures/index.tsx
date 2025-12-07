@@ -2,6 +2,7 @@ import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import React from 'react';
 
 type FeatureItem = {
   title: string;
@@ -11,32 +12,35 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Content this book covers',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
+      <ul>
+       <li> ROS 2 fundamentals (nodes, topics, services, URDF) </li>
+       <li> Gazebo simulation, physics, Unity visualization </li>
+       <li> NVIDIA Isaac Sim, Isaac ROS, Nav2 </li>
+       <li>  Vision-Language-Action robotics</li>
+       <li>  Conversational robotics (Whisper + LLM planning)</li>
+        <li>Capstone: Autonomous humanoid robot executing spoken tasks</li>
+
+      </ul>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Simple UI',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        This book has a simple and user friendly interface.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Simplicity over complexity',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        The book follows a simple structure of simple stuff over complex stuff
       </>
     ),
   },
