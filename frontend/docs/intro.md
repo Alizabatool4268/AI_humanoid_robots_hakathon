@@ -4,46 +4,12 @@ title: "intro"
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Book Intro
 
-Let's discover **Docusaurus in less than 5 minutes**.
+lets discover **Physical AI & Humanoid Robotics**.
 
-## Getting Started
+Humanoid robotics is entering a new era—one where perception, language, and action come together to create robots that can understand the world and interact naturally with humans. This book is designed as a complete, hands-on guide for learners and builders who want to explore the systems powering modern humanoid robots.
 
-Get started by **creating a new site**.
+We start with the foundations of ROS 2, simulation workflows, and robotic modeling, then move into advanced ecosystems like NVIDIA Isaac and Nav2. From there, you’ll learn how multimodal AI—vision, language, and action—unlocks intelligent behavior, and how conversational robotics enables robots to respond to spoken commands. The journey ends with a full capstone: building an autonomous humanoid capable of executing tasks through natural speech.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Whether you’re a beginner or advancing your skills, this book equips you with the tools, concepts, and workflows required to build the robots of tomorrow.
