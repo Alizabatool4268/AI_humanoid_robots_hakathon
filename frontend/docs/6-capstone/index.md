@@ -2,6 +2,7 @@
 id: capstone
 title: "Capstone: Autonomous Humanoid Robot"
 sidebar_label: '6. Capstone: Autonomous Humanoid Robot Executing Spoken Tasks'
+sidebar_position: 7
 ---
 
 

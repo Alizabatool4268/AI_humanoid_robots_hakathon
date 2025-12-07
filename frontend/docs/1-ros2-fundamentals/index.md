@@ -2,6 +2,7 @@
 id: ros2-fundamentals
 title: ROS 2 Fundamentals
 sidebar_label: '1. ROS 2 Fundamentals'
+sidebar_position: 2
 ---
 
 # ROS 2 Fundamentals

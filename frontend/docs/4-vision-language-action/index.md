@@ -2,6 +2,7 @@
 id: vision-language-action
 title: Vision-Language-Action Robotics
 sidebar_label: '4. Vision-Language-Action Robotics'
+sidebar_position: 5
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 id: intro
-title: "intro"
+title: "Introduction to Physical AI & Humanoid Robotics"
+sidebar_label: 'Introduction to Physical AI & Humanoid Robotics'
 sidebar_position: 1
 ---
 

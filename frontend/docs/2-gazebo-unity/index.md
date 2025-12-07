@@ -2,6 +2,7 @@
 id: gazebo-unity
 title: Gazebo Simulation, Physics, Unity Visualization
 sidebar_label: '2. Gazebo Simulation, Physics, Unity Visualization'
+sidebar_position: 3
 ---
 
 # Gazebo Simulation, Physics, Unity Visualization

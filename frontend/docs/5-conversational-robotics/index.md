@@ -2,6 +2,7 @@
 id: conversational-robotics
 title: Conversational Robotics (Whisper + LLM Planning)
 sidebar_label: '5. Conversational Robotics (Whisper + LLM Planning)'
+sidebar_position: 6
 ---
 
 # Conversational Robotics (Whisper + LLM Planning)

@@ -2,6 +2,7 @@
 id: nvidia-isaac
 title: NVIDIA Isaac Sim, Isaac ROS, and Nav2
 sidebar_label: '3. NVIDIA Isaac Sim, Isaac ROS, Nav2'
+sidebar_position: 4
 ---
 
 # NVIDIA Isaac Sim, Isaac ROS, Nav2
