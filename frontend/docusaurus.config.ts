@@ -45,7 +45,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/AI-humanoid-robots-hakathon/AI-humanoid-robots-hakathon/tree/main/',
+            'https://github.com/Alizabatool4268/AI_humanoid_robots_hakathon',
           routeBasePath: '/',
         },
         blog: {
@@ -90,7 +90,7 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/AI-humanoid-robots-hakathon/AI-humanoid-robots-hakathon',
+          href: 'https://github.com/Alizabatool4268/AI_humanoid_robots_hakathon',
           label: 'GitHub',
           position: 'right',
         },
@@ -130,7 +130,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/AI-humanoid-robots-hakathon/AI-humanoid-robots-hakathon',
+              href: 'https://github.com/Alizabatool4268/AI_humanoid_robots_hakathon',
             },
           ],
         },
