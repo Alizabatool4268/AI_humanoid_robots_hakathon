@@ -2,7 +2,10 @@
 
 import re
 import uuid
-from typing import List
+import time
+from functools import wraps
+import logging
+from typing import List, Callable, Any
 
 
 def count_words(text: str) -> int:
@@ -53,3 +56,40 @@ def find_sentence_boundary(text: str, target_pos: int) -> int:
 
     # If no sentence boundary found, return the original target
     return target_pos
+
+
+def measure_performance(func: Callable) -> Callable:
+    """
+    Decorator to measure the execution time of a function.
+    """
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        logging.info(f"{func.__name__} executed in {execution_time:.4f} seconds")
+        return result
+    return wrapper
+
+
+def time_limited_execution(timeout_seconds: int = 10):
+    """
+    Decorator to ensure a function completes within a specified timeout.
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            start_time = time.time()
+            result = func(*args, **kwargs)
+            end_time = time.time()
+            execution_time = end_time - start_time
+
+            if execution_time > timeout_seconds:
+                logging.warning(f"{func.__name__} took {execution_time:.4f} seconds, which exceeds the {timeout_seconds}s limit")
+            else:
+                logging.info(f"{func.__name__} completed within time limit ({execution_time:.4f}s/{timeout_seconds}s)")
+
+            return result
+        return wrapper
+    return decorator

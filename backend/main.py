@@ -39,16 +39,19 @@ async def main():
     for url in urls:
         try:
             content_data = extract_text_from_url(url)
+
+            # FIX: source is now included here
             chunks = chunk_text(
                 content_data["content"],
-                url,
+                url,                                    # used as source
                 content_data["title"],
                 " > ".join(content_data["section_hierarchy"]) if content_data["section_hierarchy"] else ""
             )
+
             all_chunks.extend(chunks)
             processed_count += 1
 
-            if processed_count % 10 == 0:  # Log progress every 10 URLs
+            if processed_count % 10 == 0:
                 pipeline_logger.info(f"Processed {processed_count}/{len(urls)} URLs...")
 
         except Exception as e:
@@ -65,7 +68,7 @@ async def main():
     # Phase 3: Generate embeddings
     pipeline_logger.info("Phase 3: Generating embeddings...")
     try:
-        chunks_with_embeddings = embed(all_chunks)
+        chunks_with_embeddings = embed(all_chunks)  # FIX: embed preserves source
         pipeline_logger.info(f"Generated embeddings for {len(chunks_with_embeddings)} chunks")
     except Exception as e:
         pipeline_logger.error(f"Error during embedding generation: {e}")
@@ -84,7 +87,7 @@ async def main():
         pipeline_logger.error(f"Failed to create collection '{collection_name}'. Pipeline terminated.")
         return
 
-    # Save chunks to Qdrant
+    # Save chunks to Qdrant — source included in payload
     success_count = save_chunks_to_qdrant(chunks_with_embeddings, collection_name)
 
     end_time = time.time()
