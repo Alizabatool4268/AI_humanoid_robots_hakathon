@@ -86,9 +86,10 @@ def save_chunk_to_qdrant(chunk: Dict, collection_name: str) -> bool:
         # Prepare the payload
         payload = {
             "text": chunk['content'],
+            "source": chunk.get('source', chunk['url']),  # fallback to URL if no source
             "title": chunk['title'],
             "url": chunk['url'],
-            "section": chunk['section'] if chunk['section'] else ""
+            "section": chunk.get('section', "")
         }
 
         # Prepare the point for insertion
@@ -143,9 +144,10 @@ def save_chunks_to_qdrant(chunks: List[Dict], collection_name: str) -> int:
         for chunk in chunks:
             payload = {
                 "text": chunk['content'],
+                "source": chunk.get('source', chunk['url']),  # fallback to URL if no source
                 "title": chunk['title'],
                 "url": chunk['url'],
-                "section": chunk['section'] if chunk['section'] else ""
+                "section": chunk.get('section', "")
             }
 
             point = models.PointStruct(
