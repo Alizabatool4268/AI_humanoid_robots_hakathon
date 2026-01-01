@@ -5,7 +5,7 @@ import logging
 
 
 def retrieve_chunks(
-    query: str = "What is Physical AI?",
+    query: str = "What is ros2-fundamentals?",
     result_limit: int = 5,
     min_results: int = 3
 ) -> List[Dict[str, Any]]:

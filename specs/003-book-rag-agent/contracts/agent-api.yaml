@@ -1,0 +1,161 @@
+# API Contracts: Backend Multi-Agent System for Book RAG Chatbot
+
+**Feature**: 003-book-rag-agent
+**Date**: 2025-12-31
+
+## Overview
+
+This document defines the API contracts for the Backend Multi-Agent System for Book RAG Chatbot, focusing on the interface between the frontend and the agent system.
+
+## Agent Interface
+
+### POST /api/agent/query
+Process a user query through the multi-agent system.
+
+**Request**:
+```json
+{
+  "query": "What is the main theme of the book?",
+  "selected_text": "Optional specific text selected by user that overrides retrieval",
+  "user_context": {
+    "session_id": "unique session identifier",
+    "preferences": {}
+  }
+}
+```
+
+**Response**:
+```json
+{
+  "answer": "The main theme of the book is...",
+  "source_references": [
+    {
+      "passage": "Relevant text passage from the book",
+      "source": "Chapter 3, Page 45",
+      "similarity_score": 0.87
+    }
+  ],
+  "confidence_score": 0.92,
+  "processing_time": 2.34,
+  "was_handoff": true
+}
+```
+
+**Status Codes**:
+- 200: Successful response with answer
+- 400: Invalid request format
+- 500: Internal error in agent processing
+
+**Validation**:
+- Request query must not be empty
+- Response answer must be grounded in source material
+- Response must include source references
+
+### GET /api/agent/health
+Check the health status of the agent system.
+
+**Response**:
+```json
+{
+  "status": "healthy",
+  "agents_available": ["triage", "query"],
+  "dependencies": {
+    "qdrant": "connected",
+    "cohere": "connected",
+    "gemini": "connected"
+  }
+}
+```
+
+## Agent-to-Agent Contracts
+
+### Triage Agent Output Contract
+The triage agent produces output that conforms to this structure for handoff to the query agent:
+
+```json
+{
+  "classification": "book-related|other",
+  "original_query": "What is the main theme of the book?",
+  "selected_text": "Optional specific text selected by user",
+  "needs_handoff": true
+}
+```
+
+### Query Agent Input Contract
+The query agent accepts input in this format from the triage agent:
+
+```json
+{
+  "classification": "book-related",
+  "original_query": "What is the main theme of the book?",
+  "selected_text": "Optional specific text selected by user",
+  "needs_handoff": true
+}
+```
+
+### Query Agent Output Contract
+The query agent produces responses in this format:
+
+```json
+{
+  "answer": "The main theme of the book is...",
+  "retrieved_context": [
+    {
+      "passage": "Relevant text passage from the book",
+      "source": "Chapter 3, Page 45",
+      "similarity_score": 0.87
+    }
+  ],
+  "source_references": ["Chapter 3, Page 45"],
+  "confidence_score": 0.92
+}
+```
+
+## Error Contracts
+
+### Standard Error Response
+All error responses follow this structure:
+
+```json
+{
+  "error": {
+    "type": "error_type",
+    "message": "Human-readable error message",
+    "details": "Additional error details"
+  }
+}
+```
+
+**Common Error Types**:
+- `INVALID_INPUT`: Request format is invalid
+- `QUERY_CLASSIFICATION_FAILED`: Triage agent couldn't classify query
+- `RETRIEVAL_FAILED`: Vector search or context retrieval failed
+- `RESPONSE_GENERATION_FAILED`: Answer generation failed
+- `EXTERNAL_SERVICE_ERROR`: Dependency service unavailable
+
+## Validation Requirements
+
+### From Functional Requirements
+- **FR-001**: All responses must contain a valid answer field
+- **FR-005**: When selected_text is provided, response must be based on that text
+- **FR-006**: All responses must include source_references
+- **FR-008**: Handoff decisions must follow deterministic patterns
+
+### Performance Requirements
+- Response time must be under 5 seconds (per SC-002)
+- 95% of responses must include source references (per SC-003)
+- 98% of queries must be properly routed (per SC-005)
+
+## Security Considerations
+
+### Input Sanitization
+- All user inputs must be sanitized to prevent injection attacks
+- Query text should be validated for appropriate content
+
+### Rate Limiting
+- API endpoints should implement rate limiting to prevent abuse
+- Recommended: 100 requests per minute per IP
+
+### Authentication
+- For production deployment, API should require authentication
+- Basic token-based authentication recommended

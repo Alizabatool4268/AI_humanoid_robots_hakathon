@@ -1,0 +1,9 @@
+openai-agents
+cohere
+qdrant-client
+google-generativeai
+python-dotenv
+pytest
+fastapi
+uvicorn
+pydantic
